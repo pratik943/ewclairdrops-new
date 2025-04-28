@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Founder Message - EWCLAIRDROPS</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Courier New', monospace;
+      background: #000000;
+      color: #ffffff;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .message-box {
+      max-width: 800px;
+      font-size: 1.2rem;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      overflow: hidden;
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    audio {
+      margin-bottom: 20px;
+      width: 300px;
+    }
+
+    .telegram-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ffffff;
+      color: #000000;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(255,255,255,0.3);
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .telegram-button:hover {
+      background-color: #cccccc;
+      transform: scale(1.05);
+    }
+
+    .typing {
+      border-right: 2px solid #ffffff;
+      animation: blink 0.75s step-end infinite;
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: #ffffff; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="message-box">
+  <span id="typed-text" class="typing"></span>
+</div>
+
+<!-- Visible Music Player -->
+<audio controls loop>
+  <source src="/background.mp3" type="audio/mpeg">
+</audio>
+
+<a class="telegram-button" href="https://t.me/ewclairdrops" target="_blank">Join Our Telegram</a>
+
+<script>
+  // Typing Text Effect
+  const text = `Hey everyone!
+
+We started this channel just for fun — to share cool airdrops, crypto/NFT news, and other interesting stuff.
+
+We never treated this as a business. We never promoted anything for personal gain. Our goal was, and still is, to uplift and empower our community.
+
+In the last four years, we’ve shared loads of amazing airdrops, some even worth 5–6 figures!
+
+Thank you for being part of this journey.
+The best is still ahead — and we’re just getting started!
+
+Stay tuned. Big things coming.
+
+Pratik Sharma
+EWCLAIRDROPS`;
+
+  let index = 0;
+  const speed = 40;
+  const typedText = document.getElementById('typed-text');
+
+  function typeWriter() {
+    if (index < text.length) {
+      typedText.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeWriter, speed);
+    } else {
+      typedText.classList.remove('typing');
+    }
+  }
+
+  window.onload = typeWriter;
+</script>
+
+</body>
+</html>
